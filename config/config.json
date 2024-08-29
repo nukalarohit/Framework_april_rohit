@@ -1,0 +1,12 @@
+{
+  "oracle_db": {
+  "url": "jdbc:oracle:thin:@//localhost:1521/xe",
+    "user": "HR",
+    "password": "hr",
+    "driver":"oracle.jdbc.driver.OracleDriver"
+},
+  "snowflake_db": {
+"driver": "net.snowflake.client.jdbc.SnowflakeDriver",
+    "jdbc_url" : "jdbc:snowflake://xlylevt-mq75647.snowflakecomputing.com/?user=rohitnukala198427&password=Gundamma@123&warehouse=COMPUTE_WH&db=SAMPLE&schema=CONTACT_INFO"
+  }
+}
