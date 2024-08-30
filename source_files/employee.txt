@@ -1,0 +1,3 @@
+emp_id|emp_name|sal|dept_id
+111|rohit|1000|10
+222|bobby|2000|20
