@@ -3,7 +3,8 @@ import os
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import collect_set
 from utility.read_utility import read_file, read_db
-from utility.validation_lib import count_check, duplicate, uniqueness_check, records_present_only_in_source,records_present_only_target
+from utility.validation_lib import count_check, duplicate, uniqueness_check, records_present_only_in_source, \
+    records_present_only_target
 
 project_path = os.getcwd()
 jar_path = project_path + "/jars/ojdbc11-21.1.0.0.jar"
@@ -67,7 +68,7 @@ for row in validations:
             uniqueness_check(target, row['unique_col_list'], out, row, validation)
         elif validation == 'records_present_only_in_source':
             records_present_only_in_source(source, target, row['key_col_list'], row, out, validation)
-        elif validation=='records_present_only_target':
+        elif validation == 'records_present_only_target':
             records_present_only_target(source, target, row['key_col_list'], row, out, validation)
 
 summary = pd.DataFrame(out)

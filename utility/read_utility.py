@@ -1,9 +1,9 @@
 import json
 import os
 from pyspark.sql import SparkSession
-from utility.general_utility import flatten, read_config, read_schema, fetch_transformation_query_path, fetch_file_path
+from utility.general_utility import flatten
 
-spark = SparkSession.builder.master("local[1]").appName("SparkByExamples.com").getOrCreate()
+# spark = SparkSession.builder.master("local[1]").appName("SparkByExamples.com").getOrCreate()
 
 
 def read_file(format, path, spark, schema='NOT APPL', multiline=True):
@@ -43,3 +43,19 @@ def read_db(spark, database, transformation_query_path):
         option("query", sql_query). \
         option("driver", config_data['driver']).load()
     return df
+#
+# def read_snowflake(spark,databse,transformation_query_path):
+#     with open(r"C:\Users\india\PycharmProjects\Framework_april_rohit1\config\config.json") as f:
+#         config_data = json.load(f)[databse]
+#     with open(transformation_query_path, "r") as file:
+#         sql_query = file.read()
+#         df = spark.read.format("jdbc"). \
+#             option("driver", "net.snowflake.client.jdbc.SnowflakeDriver"). \
+#             option("url", config_data['url']). \
+#             option("user", config_data['user']). \
+#             option("password", config_data['password']). \
+#             option("query", sql_query). \
+#             option("driver", config_data['driver']).load()
+#         return df
+
+
