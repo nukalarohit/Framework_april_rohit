@@ -1,13 +1,18 @@
-import json
-import os
-from pyspark.sql import SparkSession
-from utility.general_utility import flatten, read_config, read_schema, fetch_transformation_query_path, fetch_file_path
+l=[1,2,1,2,3,4]
 
-spark = SparkSession.builder.master("local[1]").appName("SparkByExamples.com").getOrCreate()
+remdup=[]
+dup=[]
+uniq=[]
 
-# with open(r"C:\Users\india\PycharmProjects\Framework_april_rohit1\config\config.json") as f:
-#     config_data = json.load(f)
-#     print(config_data['url'])
+for i in l:
+    if i not in remdup:
+        remdup.append(i)
+    else:
+        dup.append(i)
+    for j in remdup:
+        if j not in dup:
+            uniq.append(j)
 
-project_path=os.getcwd()
-print(project_path)
+print(remdup)
+print(dup)
+print(uniq)
